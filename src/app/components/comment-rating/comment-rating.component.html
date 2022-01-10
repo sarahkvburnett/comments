@@ -1,0 +1,5 @@
+<div class="comment-rating">
+  <app-button class="woop" icon="fa-plus" (btnClick)="onUpvote($event)"></app-button>
+  <span>{{comment.score}}</span>
+  <app-button icon="fa-minus" (btnClick)="onDownvote($event)"></app-button>
+</div>

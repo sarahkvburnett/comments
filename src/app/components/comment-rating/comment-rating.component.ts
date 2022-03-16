@@ -16,12 +16,12 @@ export class CommentRatingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onUpvote(comment: Comment){
-    this.onUpvoteComment.emit(comment)
+  onUpvote(){
+    this.onUpvoteComment.emit(this.comment)
   }
 
-  onDownvote(comment: Comment){
-    this.onDownvoteComment.emit(comment)
+  onDownvote(){
+    this.onDownvoteComment.emit(this.comment)
   }
 
 }

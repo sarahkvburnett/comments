@@ -1,0 +1,39 @@
+@mixin media($px) {
+  @media (min-width: $px){
+    @content;
+  }
+}
+
+%comment-box {
+  background-color: $white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 0px $grey;
+  margin: 1rem 0;
+  padding: 1rem;
+  color: $dark-grey;
+}
+
+%comment-form {
+  @extend %comment-box;
+  display: grid;
+  grid-gap: 1rem;
+  align-items: flex-start;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: "comment comment" "logo buttons";
+  img {
+    grid-area: logo;
+  }
+  textarea {
+    grid-area: comment;
+    min-height: 6rem;
+  }
+  app-button {
+    margin-left: auto;
+    grid-area: buttons;
+  }
+  @include media($tablet){
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo comment buttons";
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../../styles/common';
+
+:host {
+  background: $grey;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: min-content;
+  > * {
+    flex: 1;
+  }
+
+  @include media($tablet){
+    flex-direction: column;
+  }
+}

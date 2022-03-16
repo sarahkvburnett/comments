@@ -5,24 +5,25 @@
     <p>{{comment.createdAt}}</p>
   </div>
   <div class="comment-body">
-    <form *ngIf="showEdit" (ngSubmit)="onSubmit()">
+    <form class="comment-form" *ngIf="showEdit" (ngSubmit)="onSubmit()">
       <textarea>{{comment.content}}</textarea>
-      <app-button text="Update"></app-button>
+      <app-button class="btn-blue" text="UPDATE"></app-button>
     </form>
     <p *ngIf="!showEdit">
-      <b *ngIf="comment.replyingTo">@{{comment.replyingTo}}</b>
+      <b class="text-blue" *ngIf="comment.replyingTo">@{{comment.replyingTo}}</b>
       {{comment.content}}
     </p>
   </div>
-  <div class="comment-footer">
-    <app-comment-rating [comment]="comment" (onUpvoteComment)="onUpvote($event)" (onDownvoteComment)="onDownvote($event)"></app-comment-rating>
-    <div class="buttons">
-      <app-button text="Reply" icon="fa-reply" (btnClick)="onToggleAddReply()"></app-button>
-      <app-button text="Delete" icon="fa-trash" (btnClick)="onToggleDelete()"></app-button>
-      <app-button text="Edit" icon="fa-pen" (btnClick)="onToggleEdit()"></app-button>
-    </div>
+  <app-comment-rating class="comment-rating" [comment]="comment" (onUpvoteComment)="onUpvote($event)" (onDownvoteComment)="onDownvote($event)"></app-comment-rating>
+  <div class="comment-buttons">
+      <app-button *ngIf="!isUserComment" class="btn-link-blue" text="Reply" icon="fa-reply" (btnClick)="onToggleAddReply()"></app-button>
+      <app-button *ngIf="isUserComment" class="btn-link-red" text="Delete" icon="fa-trash" (btnClick)="onToggleDelete()"></app-button>
+      <app-button *ngIf="isUserComment" class="btn-link-blue" text="Edit" icon="fa-pen" (btnClick)="onToggleEdit()"></app-button>
   </div>
 </div>
 <app-comment-delete *ngIf="showDelete" [comment]="comment" (onDeleteComment)="onDelete($event)" (onCancelDelete)="onToggleDelete()"></app-comment-delete>
-<app-comment-reply-add *ngIf="showAddReply" [comment]="comment"></app-comment-reply-add>
-<app-comment-replies [replies]="replies"></app-comment-replies>
+<div class="comment-replies">
+  <app-comment-reply-add class="comment-reply-add" *ngIf="showAddReply" [comment]="comment"></app-comment-reply-add>
+  <app-comment-replies class="comment-replies" [replies]="replies"></app-comment-replies>
+</div>
+

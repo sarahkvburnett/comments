@@ -13,7 +13,7 @@ export class CommentReplyAddComponent implements OnInit {
   @Input() comment!: Comment;
   @Output() onAddReply: EventEmitter<Comment> = new EventEmitter();
 
-  private content: string = '';
+  public content: string = '';
   public user!: User;
 
   constructor(private commentService: CommentService, private userService: UserService) {}

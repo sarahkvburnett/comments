@@ -15,19 +15,25 @@ export class CommentItemComponent implements OnInit {
   @Output() onDeleteComment = new EventEmitter();
   @Output() onUpdateComment = new EventEmitter();
 
-  private user!: User;
+  public user!: User;
   public replies!: Comment[];
   public showAddReply: Boolean = false;
   public showEdit: Boolean = false;
   public showDelete: Boolean = false;
   public content!: string;
+  public isUserComment: Boolean = false;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe(user => this.user = user);
+    this.userService.getUser().subscribe(user => this.setUser(user));
     this.replies = this.comment.replies;
     this.content = this.comment.content;
+  }
+
+  setUser(user: User){
+    this.user = user;
+    this.isUserComment = this.user.username == this.comment.user.username;
   }
 
   onToggleAddReply(){
@@ -55,6 +61,7 @@ export class CommentItemComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("hi");
     if (!this.content) {
       alert('Please add a comment');
       return;

@@ -1,0 +1,59 @@
+@import '../../../styles/common';
+
+.comment {
+  @extend %comment-box;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 1rem;
+  align-items: center;
+  grid-template-areas:
+    "header header"
+    "body body"
+    "rating buttons";
+
+  @include media($tablet){
+    grid-template-areas:
+    "rating header buttons"
+    "rating body body";
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  grid-area: header;
+  gap: 1rem;
+  h3 {
+    color: $dark-blue;
+  }
+}
+
+.comment-body {
+  grid-area: body;
+  min-height: 6rem;
+  form {
+    display: flex;
+    gap: 1rem;
+    textarea {
+      flex: 1;
+    }
+  }
+}
+
+.comment-rating {
+  grid-area: rating;
+}
+
+.comment-buttons {
+  grid-area: buttons;
+  margin-left: auto;
+}
+
+.comment ~ .comment-replies {
+  margin-left: 5%;
+  padding-left: 5%;
+  border-left: 2px solid $grey;
+}

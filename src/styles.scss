@@ -1,5 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
 
-@import "styles/variables";
 @import "styles/common";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a, input, button {
+  font: unset;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $light-grey;
+}
+
+main {
+  width: 800px;
+  max-width: 90%;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+textarea {
+  border-radius: 5px;
+  border-color: $grey;
+  font: unset;
+  padding: 0.5rem;
+  min-height: 6rem;
+  resize: none;
+}
+
+.buttons {
+  display: flex;
+  gap: .5rem;
+}

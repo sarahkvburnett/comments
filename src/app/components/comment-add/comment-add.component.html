@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()">
-  <img src="{{user.image.webp}}">
-  <textarea></textarea>
-  <app-button class="btn-primary" text="SEND"></app-button>
+  <img src="{{ user.image.webp }}">
+  <textarea name="comment" [(ngModel)]="content" placeholder="Add a comment..."></textarea>
+  <app-button class="btn-blue" text="SEND"></app-button>
 </form>

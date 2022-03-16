@@ -10,6 +10,12 @@ $grey: hsl(223, 19%, 93%);
 $light-grey: hsl(228, 33%, 97%);
 $white: hsl(0, 0%, 100%);
 
+$colors-list: (
+  "blue": $blue,
+  "red": $red,
+  "grey": $dark-grey
+);
+
 //TYPOGRAPHY
 $font-family: 'Rubik', sans-serif;
 $font-weight-normal: 400;
@@ -18,5 +24,5 @@ $font-weight-bolder: 700;
 
 //BREAKPOINTS
 $mobile: 375px;
+$tablet: 800px;
 $desktop: 1440px;
-

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, OnInit, Input} from '@angular/core';
+import {Component, EventEmitter, Output, OnInit} from '@angular/core';
 import {CommentService} from "../../services/comment.service";
 import {User} from "../../User";
 import {UserService} from "../../services/user.service";
@@ -12,7 +12,7 @@ import {Comment} from "../../Comment";
 export class CommentAddComponent implements OnInit {
   @Output() onAddComment: EventEmitter<Comment> = new EventEmitter();
 
-  private content: string = '';
+  public content: string = '';
   public user!: User;
 
   constructor(private commentService: CommentService, private userService: UserService) {}
@@ -22,6 +22,8 @@ export class CommentAddComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.user);
+
     if (!this.content) {
       alert('Please add a comment');
       return;

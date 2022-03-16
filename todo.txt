@@ -1,0 +1,11 @@
+TODO
+- Error reading user image
+- Events do not work on replay - missing event emitter - move to service
+- Tighten up styling, particularly mobile
+- Date format
+- Error messages
+- Text area styling
+- Check ordering (top-level highest votes, nested order)
+
+
+
